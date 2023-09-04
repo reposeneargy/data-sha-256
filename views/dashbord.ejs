@@ -227,7 +227,7 @@
                 <div class="header">
                     <span>Partner Form Data </span>
                     <div class="btn-box">
-                        <a class="d-btn" href="http://127.0.0.1:4500/download_data?type=partner">Download</a>
+                        <a class="d-btn" href="https://backend-opp7.onrender.com/download_data?type=partner">Download</a>
                         <button type="button" onclick="pdata()">Load Data</button>
 
                     </div>
@@ -267,7 +267,7 @@
                 <div class="header">
                     <span>Disel Form Data </span>
                     <div class="btn-box">
-                        <a class="d-btn" href="http://127.0.0.1:4500/download_data?type=disel">Download</a>
+                        <a class="d-btn" href="https://backend-opp7.onrender.com/download_data?type=disel">Download</a>
                         <button type="button" onclick="ddata()">Load Data</button>
 
                     </div>
@@ -333,7 +333,7 @@
         //Function to load pform data 
         const pdata = async () => {
             let table = document.querySelector(".table1")
-            const url = `http://127.0.0.1:4500/get_pform`
+            const url = `https://backend-opp7.onrender.com/get_pform`
             const res = await fetch(url);
             const resData = await res.json()
             const data = resData;
@@ -360,7 +360,7 @@
 
         const ddata = async () => {
             let table = document.querySelector(".table2")
-            const url = `http://127.0.0.1:4500/get_dform`
+            const url = `https://backend-opp7.onrender.com/get_dform`
             const res = await fetch(url);
             const resData = await res.json()
             const data = resData;
@@ -389,7 +389,7 @@
 
         //Function for logout
         const logout = async () => {
-            const url = `http://127.0.0.1:4500/user/logout`
+            const url = `https://backend-opp7.onrender.com/user/logout`
             const res = await fetch(url);
             const resData = await res.json();
             if (resData.success === true) {
