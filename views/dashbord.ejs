@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel - Dashbord</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(152, 200, 200);
+            min-height: 100vh;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        nav {
+            min-width: 100%;
+            display: flex;
+            margin-top: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button {
+            font-size: 1.3rem;
+            padding: .5rem;
+            outline: none;
+            border: none;
+        }
+
+        .btn-box button:hover {
+            border-radius: .8rem;
+            box-shadow: 2px 4px 54px #333;
+            cursor: pointer;
+            background-color: rgb(222, 23, 23);
+            color: #fff;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h2 {
+            font-family: monospace;
+        }
+
+        .pre-load {
+            max-width: 60vw;
+            display: flex;
+            position: absolute;
+            top: 25%;
+            right: 25%;
+            bottom: 25%;
+            left: 25%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: .8rem;
+            background-color: rgb(108, 107, 98);
+            padding: 4rem;
+        }
+
+        .pre-load span {
+            margin: 2rem 0;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 650;
+        }
+
+        .pre-load button {
+            cursor: pointer;
+            padding: .9rem;
+            font-weight: 650;
+        }
+
+        .pre-load button:hover {
+            background-color: black;
+            color: #fff;
+            box-shadow: 2px 4px 54px #e0dbdb;
+            border-radius: 1.2rem;
+        }
+
+        .form1 {
+            width: 100%;
+            overflow-x: scroll;
+            margin-top: 5rem;
+            padding: 1.2rem;
+            height: fit-content;
+            background-color: #fff;
+            border-radius: .5rem;
+        }
+
+        .form1 .header {
+            width: 100%;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form1 .header button {
+            background-color: rgb(12, 248, 12);
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .form1 .header button:hover {
+            background-color: black;
+            color: #fff;
+            padding: .6rem;
+            box-shadow: 2px 4px 54px #e0dbdb;
+            border-radius: 1.2rem;
+
+        }
+
+        .form1 .header span {
+            font-size: 1.3rem;
+            font-weight: 650;
+        }
+
+        .form1 .body {
+            display: flex;
+            padding: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form1 .body table {
+            text-align: center;
+        }
+
+        .form1 .body table tr th {
+            font-size: 1.2rem;
+            padding: .3rem;
+        }
+
+        .form1 .body table tr:nth-child(2n+1) {
+            background-color: rgb(171, 196, 222);
+        }
+
+        .d-btn {
+            padding: 0.5rem;
+            text-decoration: none;
+            font-size: 1.4rem;
+            background-color: lime;
+            color: #000;
+            font-weight: 650;
+            margin: .5rem;
+        }
+
+        .d-btn:hover {
+            background-color: black;
+            color: #fff;
+            padding: .6rem;
+            box-shadow: 2px 4px 54px #e0dbdb;
+            border-radius: 1.2rem;
+        }
+
+        @media screen and (max-width:768px) {
+            html {
+                font-size: 70%;
+            }
+
+            .pre-load {
+                width: 90%;
+                min-height: 320px;
+                padding: 1rem;
+                text-align: center;
+                margin: 25% -2%;
+            }
+
+
+
+            .btn-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            main {
+                margin: none;
+                padding: 1rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hedaer -->
+    <div class="pre-load">
+        <span>Click on the button to load the data.</span>
+        <button type="button" onclick="load()">
+            Load All Data
+        </button>
+    </div>
+
+    <main class="main">
+
+        <header>
+            <nav>
+                <div class="logo">
+                    <h2>💼 Dashbord</h2>
+                </div>
+                <div class="btn-box">
+                    <button type="button" onclick="logout()">Log out</button>
+                </div>
+
+            </nav>
+        </header>
+        <!-- content-body -->
+
+        <!-- Resutl -->
+        <div class="result">
+            <div class="form1">
+                <div class="header">
+                    <span>Partner Form Data </span>
+                    <div class="btn-box">
+                        <a class="d-btn" href="http://127.0.0.1:4500/download_data?type=partner">Download</a>
+                        <button type="button" onclick="pdata()">Load Data</button>
+
+                    </div>
+
+                </div>
+                <div class="body">
+                    <table border=".5px" class="table1">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Cast</th>
+                            <th>Mobile Number</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Owner</th>
+                            <th>Submitted Date</th>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td>user</td>
+                            <td>cast</td>
+                            <td>mobile number</td>
+                            <td>State</td>
+                            <td>City</td>
+                            <td>Yes</td>
+                            <td>12-12-2000</td>
+
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+            <hr>
+            <div class="form1">
+                <div class="header">
+                    <span>Disel Form Data </span>
+                    <div class="btn-box">
+                        <a class="d-btn" href="http://127.0.0.1:4500/download_data?type=disel">Download</a>
+                        <button type="button" onclick="ddata()">Load Data</button>
+
+                    </div>
+
+                </div>
+                <div class="body">
+                    <table border=".5px" class="table2">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Name Of Company</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Monthly Uses</th>
+                            <th>Submitted Date</th>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td>user</td>
+                            <td>company</td>
+                            <td>mobile number</td>
+                            <td>email</td>
+                            <td>City</td>
+                            <td>State</td>
+                            <td>monthly uses</td>
+                            <td>12-12-2000</td>
+
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+        let main = document.querySelector(".main");
+        console.log(`Data Loaded successfully.`);
+        //Onload function
+        window.addEventListener('load', () => {
+            console.log("Window reloaded")
+            main.style.display = "none";
+
+
+        })
+
+        //function for load data
+        const load = () => {
+            const el = document.querySelector('.pre-load');
+            el.style.display = "none";
+            main.style.display = "block"
+
+        }
+        //Function to load pform data 
+        const pdata = async () => {
+            let table = document.querySelector(".table1")
+            const url = `http://127.0.0.1:4500/get_pform`
+            const res = await fetch(url);
+            const resData = await res.json()
+            const data = resData;
+            data.data.forEach(item => {
+                let trn = document.createElement('tr');
+                trn.innerHTML =
+                    `
+                
+                            <td>${item.firstName}</td>
+                            <td>${item.lastName}</td>
+                            <td>${item.cast}</td>
+                            <td>${item.mobile}</td>
+                            <td>${item.state}</td>
+                            <td>${item.city}</td>
+                            <td>${item.owner}</td>
+                            <td>${item.submitted_date}</td>
+
+                        
+                        `;
+                table.appendChild(trn);
+
+            });
+        }
+
+        const ddata = async () => {
+            let table = document.querySelector(".table2")
+            const url = `http://127.0.0.1:4500/get_dform`
+            const res = await fetch(url);
+            const resData = await res.json()
+            const data = resData;
+            data.data.forEach(item => {
+                let trn = document.createElement("tr");
+                trn.innerHTML =
+                    `
+                 
+                            <td>${item.firstName}</td>
+                            <td>${item.lastName}</td>
+                            <td>${item.nameofcompany}</td>
+                            <td>${item.phone}</td>
+                            <td>${item.email}</td>
+                            <td>${item.city}</td>
+                            <td>${item.state}</td>
+                            <td>${item.monthly_uses}</td>
+                            <td>${item.submitted_date}</td>
+
+                        
+
+                `;
+                table.appendChild(trn)
+
+            });
+        }
+
+        //Function for logout
+        const logout = async () => {
+            const url = `http://127.0.0.1:4500/user/logout`
+            const res = await fetch(url);
+            const resData = await res.json();
+            if (resData.success === true) {
+                window.location.href = '/';
+            }
+            console.log(resData);
+        }
+    </script>
+
+</body>
+
+</html>
